@@ -1,16 +1,16 @@
-package negocio;
+package business;
 
 import java.util.List;
 
 /**
- * Classe de negócio para realizar operações sobre os clientes do banco.
+ * Classe de negï¿½cio para realizar operaï¿½ï¿½es sobre os clientes do banco.
  * @author Gustavo Farias
  */
 public class GerenciadoraClientes {
 
-	private List<Cliente> clientesDoBanco;
+	private List<Client> clientesDoBanco;
 
-	public GerenciadoraClientes(List<Cliente> clientesDoBanco) {
+	public GerenciadoraClientes(List<Client> clientesDoBanco) {
 		this.clientesDoBanco = clientesDoBanco;
 	}
 	
@@ -18,43 +18,43 @@ public class GerenciadoraClientes {
 	 * Retorna uma lista com todos os clientes do banco.
 	 * @return lista com todos os clientes do banco
 	 */
-	public List<Cliente> getClientesDoBanco() {
+	public List<Client> getClientesDoBanco() {
 		return clientesDoBanco;
 	}
 	
 	/**
 	 * Pesquisa por um cliente a partir do seu ID.
 	 * @param idCliente id do cliente a ser pesquisado
-	 * @return o cliente pesquisado ou null, caso não seja encontrado
+	 * @return o cliente pesquisado ou null, caso nï¿½o seja encontrado
 	 */
-	public Cliente pesquisaCliente (int idCliente) {
+	public Client pesquisaCliente (int idCliente) {
 
-		for (Cliente cliente : clientesDoBanco) {
-			if(cliente.getId() == idCliente)
-				return cliente;
+		for (Client client : clientesDoBanco) {
+			if(client.getId() == idCliente)
+				return client;
 		}
 		return null;
 	}
 	
 	/**
-	 * Adiciona um novo cliente à lista de clientes do banco.
-	 * @param novoCliente novo cliente a ser adicionado
+	 * Adiciona um novo cliente ï¿½ lista de clientes do banco.
+	 * @param novoClient novo cliente a ser adicionado
 	 */
-	public void adicionaCliente (Cliente novoCliente) {
-		clientesDoBanco.add(novoCliente);
+	public void adicionaCliente (Client novoClient) {
+		clientesDoBanco.add(novoClient);
 	}
 
 	/**
 	 * Remove cliente da lista de clientes do banco.
 	 * @param idCliente ID do cliente a ser removido 
-	 * @return true se o cliente foi removido. False, caso contrário.
+	 * @return true se o cliente foi removido. False, caso contrï¿½rio.
 	 */
 	public boolean removeCliente (int idCliente) {
 		boolean clienteRemovido = false;
 		
 		for (int i = 0; i < clientesDoBanco.size(); i++) {
-			Cliente cliente = clientesDoBanco.get(i);
-			if(cliente.getId() == idCliente){
+			Client client = clientesDoBanco.get(i);
+			if(client.getId() == idCliente){
 				clientesDoBanco.remove(i);
 				clienteRemovido = true;
 				break;
@@ -65,17 +65,17 @@ public class GerenciadoraClientes {
 	}
 
 	/**
-	 * Informa se um determinado cliente está ativo ou não.
-	 * @param idCliente ID do cliente cujo status será verificado
-	 * @return true se o cliente está ativo. False, caso contrário. 
+	 * Informa se um determinado cliente estï¿½ ativo ou nï¿½o.
+	 * @param idCliente ID do cliente cujo status serï¿½ verificado
+	 * @return true se o cliente estï¿½ ativo. False, caso contrï¿½rio. 
 	 */
 	public boolean clienteAtivo (int idCliente) {
 		boolean clienteAtivo = false;
 		
 		for (int i = 0; i < clientesDoBanco.size(); i++) {
-			Cliente cliente = clientesDoBanco.get(i);
-			if(cliente.getId() == idCliente)
-				if(cliente.isAtivo()){
+			Client client = clientesDoBanco.get(i);
+			if(client.getId() == idCliente)
+				if(client.isActive()){
 					clienteAtivo = true;
 					break;
 				}
@@ -92,8 +92,8 @@ public class GerenciadoraClientes {
 	}
 	
 	/**
-	 * Valida se a idade do cliente está dentro do intervalo permitido (18 - 65).
-	 * @param idade a idade do possível novo cliente
+	 * Valida se a idade do cliente estï¿½ dentro do intervalo permitido (18 - 65).
+	 * @param idade a idade do possï¿½vel novo cliente
 	 */
 	public boolean validaIdade(int idade) throws IdadeNaoPermitidaException {
 	

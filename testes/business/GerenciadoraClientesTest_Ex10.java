@@ -1,4 +1,4 @@
-package negocio;
+package business;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -29,13 +29,13 @@ public class GerenciadoraClientesTest_Ex10 {
 		/* ========== Montagem do cen�rio ========== */
 		
 		// criando alguns clientes
-		Cliente cliente01 = new Cliente(idCLiente01, "Rafael Costa", 31, "gugafarias@gmail.com", 1, true);
-		Cliente cliente02 = new Cliente(idCLiente02, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 1, true);
+		Client client01 = new Client(idCLiente01, "Rafael Costa", 31, "gugafarias@gmail.com", 1, true);
+		Client client02 = new Client(idCLiente02, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 1, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<Cliente> clientesDoBanco = new ArrayList<>();
-		clientesDoBanco.add(cliente01);
-		clientesDoBanco.add(cliente02);
+		List<Client> clientesDoBanco = new ArrayList<>();
+		clientesDoBanco.add(client01);
+		clientesDoBanco.add(client02);
 		
 		gerClientes = new GerenciadoraClientes(clientesDoBanco);
 	}
@@ -55,10 +55,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testPesquisaCliente() {
 
 		/* ========== Execu��o ========== */
-		Cliente cliente = gerClientes.pesquisaCliente(idCLiente01);
+		Client client = gerClientes.pesquisaCliente(idCLiente01);
 		
 		/* ========== Verifica��es ========== */
-		assertThat(cliente.getId(), is(idCLiente01));
+		assertThat(client.getId(), is(idCLiente01));
 		
 	}
 	
@@ -72,10 +72,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testPesquisaClienteInexistente() {
 
 		/* ========== Execu��o ========== */
-		Cliente cliente = gerClientes.pesquisaCliente(1001);
+		Client client = gerClientes.pesquisaCliente(1001);
 		
 		/* ========== Verifica��es ========== */
-		assertNull(cliente);
+		assertNull(client);
 		
 	}
 	
@@ -128,10 +128,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testClienteIdadeAceitavel() throws IdadeNaoPermitidaException {
 
 		/* ========== Montagem do Cen�rio ========== */		
-		Cliente cliente = new Cliente(1, "Gustavo", 25, "guga@gmail.com", 1, true);
+		Client client = new Client(1, "Gustavo", 25, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(cliente.getIdade());
+		boolean idadeValida = gerClientes.validaIdade(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -148,10 +148,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testClienteIdadeAceitavel_02() throws IdadeNaoPermitidaException {
 
 		/* ========== Montagem do Cen�rio ========== */		
-		Cliente cliente = new Cliente(1, "Gustavo", 18, "guga@gmail.com", 1, true);
+		Client client = new Client(1, "Gustavo", 18, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(cliente.getIdade());
+		boolean idadeValida = gerClientes.validaIdade(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -168,10 +168,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testClienteIdadeAceitavel_03() throws IdadeNaoPermitidaException {
 
 		/* ========== Montagem do Cen�rio ========== */		
-		Cliente cliente = new Cliente(1, "Gustavo", 65, "guga@gmail.com", 1, true);
+		Client client = new Client(1, "Gustavo", 65, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(cliente.getIdade());
+		boolean idadeValida = gerClientes.validaIdade(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -188,11 +188,11 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testClienteIdadeAceitavel_04() throws IdadeNaoPermitidaException {
 
 		/* ========== Montagem do Cen�rio ========== */		
-		Cliente cliente = new Cliente(1, "Gustavo", 17, "guga@gmail.com", 1, true);
+		Client client = new Client(1, "Gustavo", 17, "guga@gmail.com", 1, true);
 
 		/* ========== Execu��o ========== */
 		try {
-			gerClientes.validaIdade(cliente.getIdade());
+			gerClientes.validaIdade(client.getAge());
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
@@ -211,10 +211,10 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testClienteIdadeAceitavel_05() throws IdadeNaoPermitidaException {
 		
 		/* ========== Montagem do Cen�rio ========== */		
-		Cliente cliente = new Cliente(1, "Gustavo", 66, "guga@gmail.com", 1, true);
+		Client client = new Client(1, "Gustavo", 66, "guga@gmail.com", 1, true);
 		/* ========== Execu��o ========== */
 		try {
-			gerClientes.validaIdade(cliente.getIdade());
+			gerClientes.validaIdade(client.getAge());
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */

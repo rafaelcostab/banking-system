@@ -1,4 +1,4 @@
-package negocio;
+package business;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -6,12 +6,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Classe de teste criada para garantir o funcionamento das principais operações
+ * Classe de teste criada para garantir o funcionamento das principais operaï¿½ï¿½es
  * sobre contas, realizadas pela classe {@link GerenciadoraContas}.
  * 
  * @author Gustavo Farias
@@ -22,8 +20,8 @@ public class GerenciadoraContasTest_Ex6 {
 	private GerenciadoraContas gerContas;
 	
 	/**
-	 * Teste básico da transferência de um valor da conta de um cliente para outro,
-	 * estando ambos os clientes ativos e havendo saldo suficiente para tal transferência
+	 * Teste bï¿½sico da transferï¿½ncia de um valor da conta de um cliente para outro,
+	 * estando ambos os clientes ativos e havendo saldo suficiente para tal transferï¿½ncia
 	 * ocorrer com sucesso.
 	 * 
 	 * @author Gustavo Farias
@@ -32,7 +30,7 @@ public class GerenciadoraContasTest_Ex6 {
 	@Test
 	public void testTransfereValor() {
 
-		/* ========== Montagem do cenário ========== */
+		/* ========== Montagem do cenï¿½rio ========== */
 		
 		// criando alguns clientes
 		int idConta01 = 1;
@@ -47,18 +45,18 @@ public class GerenciadoraContasTest_Ex6 {
 		
 		gerContas = new GerenciadoraContas(contasDoBanco);
 
-		/* ========== Execução ========== */
+		/* ========== Execuï¿½ï¿½o ========== */
 		boolean sucesso = gerContas.transfereValor(idConta01, 100, idConta02);
 		
-		/* ========== Verificações ========== */
+		/* ========== Verificaï¿½ï¿½es ========== */
 		assertTrue(sucesso);
 		assertThat(conta02.getSaldo(), is(100.0));
 		assertThat(conta01.getSaldo(), is(100.0));
 	}
 	
 	/**
-	 * Teste básico da tentativa de transferência de um valor da conta de um cliente para outro
-	 * quando não há saldo suficiente.
+	 * Teste bï¿½sico da tentativa de transferï¿½ncia de um valor da conta de um cliente para outro
+	 * quando nï¿½o hï¿½ saldo suficiente.
 	 * 
 	 * @author Gustavo Farias
 	 * @date 21/01/2035
@@ -66,7 +64,7 @@ public class GerenciadoraContasTest_Ex6 {
 	@Test
 	public void testTransfereValor_SaldoInsuficiente() {
 
-		/* ========== Montagem do cenário ========== */
+		/* ========== Montagem do cenï¿½rio ========== */
 		
 		// criando alguns clientes
 		int idConta01 = 1;
@@ -81,14 +79,14 @@ public class GerenciadoraContasTest_Ex6 {
 		
 		gerContas = new GerenciadoraContas(contasDoBanco);
 
-		/* ========== Execução ========== */
+		/* ========== Execuï¿½ï¿½o ========== */
 		boolean sucesso = gerContas.transfereValor(idConta01, 200, idConta02);
 		
-		/* ========== Verificações ========== */
+		/* ========== Verificaï¿½ï¿½es ========== */
 		assertTrue(sucesso);
 		assertThat(conta01.getSaldo(), is(-100.0));
 		assertThat(conta02.getSaldo(), is(200.0));
 	}
 
 }
-//Manutenção de Testes
+//Manutenï¿½ï¿½o de Testes

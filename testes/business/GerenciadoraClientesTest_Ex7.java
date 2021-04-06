@@ -1,4 +1,4 @@
-package negocio;
+package business;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Classe de teste criada para garantir o funcionamento das principais operações
+ * Classe de teste criada para garantir o funcionamento das principais operaï¿½ï¿½es
  * sobre clientes, realizadas pela classe {@link GerenciadoraClientes}.
  * 
  * @author Gustavo Farias
@@ -26,16 +26,16 @@ public class GerenciadoraClientesTest_Ex7 {
 	@Before
 	public void setUp() {
 	
-		/* ========== Montagem do cenário ========== */
+		/* ========== Montagem do cenï¿½rio ========== */
 		
 		// criando alguns clientes
-		Cliente cliente01 = new Cliente(idCLiente01, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
-		Cliente cliente02 = new Cliente(idCLiente02, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 1, true);
+		Client client01 = new Client(idCLiente01, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
+		Client client02 = new Client(idCLiente02, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 1, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<Cliente> clientesDoBanco = new ArrayList<>();
-		clientesDoBanco.add(cliente01);
-		clientesDoBanco.add(cliente02);
+		List<Client> clientesDoBanco = new ArrayList<>();
+		clientesDoBanco.add(client01);
+		clientesDoBanco.add(client02);
 		
 		gerClientes = new GerenciadoraClientes(clientesDoBanco);
 	
@@ -50,7 +50,7 @@ public class GerenciadoraClientesTest_Ex7 {
 	}
 	
 	/**
-	 * Teste básico da pesquisa de um cliente a partir do seu ID.
+	 * Teste bï¿½sico da pesquisa de um cliente a partir do seu ID.
 	 * 
 	 * @author Gustavo Farias
 	 * @date 21/01/2035
@@ -58,16 +58,16 @@ public class GerenciadoraClientesTest_Ex7 {
 	@Test
 	public void testPesquisaCliente() {
 
-		/* ========== Execução ========== */
-		Cliente cliente = gerClientes.pesquisaCliente(idCLiente01);
+		/* ========== Execuï¿½ï¿½o ========== */
+		Client client = gerClientes.pesquisaCliente(idCLiente01);
 		
-		/* ========== Verificações ========== */
-		assertThat(cliente.getId(), is(idCLiente01));
+		/* ========== Verificaï¿½ï¿½es ========== */
+		assertThat(client.getId(), is(idCLiente01));
 		
 	}
 	
 	/**
-	 * Teste básico da remoção de um cliente a partir do seu ID.
+	 * Teste bï¿½sico da remoï¿½ï¿½o de um cliente a partir do seu ID.
 	 * 
 	 * @author Gustavo Farias
 	 * @date 21/01/2035
@@ -75,10 +75,10 @@ public class GerenciadoraClientesTest_Ex7 {
 	@Test
 	public void testRemoveCliente() {
 		
-		/* ========== Execução ========== */
+		/* ========== Execuï¿½ï¿½o ========== */
 		boolean clienteRemovido = gerClientes.removeCliente(idCLiente02);
 		
-		/* ========== Verificações ========== */
+		/* ========== Verificaï¿½ï¿½es ========== */
 		assertThat(clienteRemovido, is(true));
 		assertThat(gerClientes.getClientesDoBanco().size(), is(1));
 		assertNull(gerClientes.pesquisaCliente(idCLiente02));
@@ -86,4 +86,4 @@ public class GerenciadoraClientesTest_Ex7 {
 	}
 	
 }
-// Como Ganhar Tempo e Otimizar Testes com Cenários Parecidos
+// Como Ganhar Tempo e Otimizar Testes com Cenï¿½rios Parecidos

@@ -1,4 +1,4 @@
-package negocio;
+package business;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -6,8 +6,6 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 public class GerenciadoraContasTest_Ex3 {
@@ -17,7 +15,7 @@ public class GerenciadoraContasTest_Ex3 {
 	@Test
 	public void testTransfereValor() {
 
-		/* ========== Montagem do cenário ========== */
+		/* ========== Montagem do cenï¿½rio ========== */
 		
 		// criando alguns clientes
 		ContaCorrente conta01 = new ContaCorrente(1, 200, true);
@@ -30,10 +28,10 @@ public class GerenciadoraContasTest_Ex3 {
 		
 		gerContas = new GerenciadoraContas(contasDoBanco);
 
-		/* ========== Execução ========== */
+		/* ========== Execuï¿½ï¿½o ========== */
 		gerContas.transfereValor(1, 100, 2);
 		
-		/* ========== Verificações ========== */
+		/* ========== Verificaï¿½ï¿½es ========== */
 		assertThat(conta02.getSaldo(), is(100.0));
 		assertThat(conta01.getSaldo(), is(100.0));
 	}
