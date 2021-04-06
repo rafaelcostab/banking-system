@@ -8,9 +8,9 @@ import java.util.List;
  */
 public class GerenciadoraContas {
 
-	private List<ContaCorrente> contasDoBanco;
+	private List<CurrentAcount> contasDoBanco;
 
-	public GerenciadoraContas(List<ContaCorrente> contasDoBanco) {
+	public GerenciadoraContas(List<CurrentAcount> contasDoBanco) {
 		this.contasDoBanco = contasDoBanco;
 	}
 
@@ -18,7 +18,7 @@ public class GerenciadoraContas {
 	 * Retorna uma lista com todas as contas do banco.
 	 * @return lista com todas as contas do banco
 	 */
-	public List<ContaCorrente> getContasDoBanco() {
+	public List<CurrentAcount> getContasDoBanco() {
 		return contasDoBanco;
 	}
 
@@ -27,11 +27,11 @@ public class GerenciadoraContas {
 	 * @param idConta id da conta a ser pesquisada
 	 * @return a conta pesquisada ou null, caso n�o seja encontrada
 	 */
-	public ContaCorrente pesquisaConta (int idConta) {
+	public CurrentAcount pesquisaConta (int idConta) {
 
-		for (ContaCorrente contaCorrente : contasDoBanco) {
-			if(contaCorrente.getId() == idConta)
-				return contaCorrente;
+		for (CurrentAcount currentAcount : contasDoBanco) {
+			if(currentAcount.getId() == idConta)
+				return currentAcount;
 		}
 		return null;
 	}
@@ -40,7 +40,7 @@ public class GerenciadoraContas {
 	 * Adiciona uma nova conta � lista de contas do banco.
 	 * @param novaConta nova conta a ser adicionada
 	 */
-	public void adicionaConta (ContaCorrente novaConta) {
+	public void adicionaConta (CurrentAcount novaConta) {
 		this.contasDoBanco.add(novaConta);
 	}
 
@@ -54,7 +54,7 @@ public class GerenciadoraContas {
 		boolean contaRemovida = false;
 		
 		for (int i = 0; i < contasDoBanco.size(); i++) {
-			ContaCorrente conta = contasDoBanco.get(i);
+			CurrentAcount conta = contasDoBanco.get(i);
 			if(conta.getId() == idConta){
 				contasDoBanco.remove(i);
 				break;
@@ -74,9 +74,9 @@ public class GerenciadoraContas {
 		boolean contaAtiva = false;
 		
 		for (int i = 0; i < contasDoBanco.size(); i++) {
-			ContaCorrente conta = contasDoBanco.get(i);
+			CurrentAcount conta = contasDoBanco.get(i);
 			if(conta.getId() == idConta)
-				if(conta.isAtiva()){
+				if(conta.isActive()){
 					contaAtiva = true;
 					break;
 				}
@@ -98,12 +98,12 @@ public class GerenciadoraContas {
 		
 		boolean sucesso = false;
 		
-		ContaCorrente contaOrigem = pesquisaConta(idContaOrigem);
-		ContaCorrente contaDestino = pesquisaConta(idContaDestino);
+		CurrentAcount contaOrigem = pesquisaConta(idContaOrigem);
+		CurrentAcount contaDestino = pesquisaConta(idContaDestino);
 		
 //		if(contaOrigem.getSaldo() >= valor){
-			contaDestino.setSaldo(contaDestino.getSaldo() + valor);
-			contaOrigem.setSaldo(contaOrigem.getSaldo() - valor);
+			contaDestino.setBalance(contaDestino.getBalance() + valor);
+			contaOrigem.setBalance(contaOrigem.getBalance() - valor);
 			sucesso = true;
 //		}
 	

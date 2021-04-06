@@ -35,11 +35,11 @@ public class GerenciadoraContasTest_Ex11 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		ContaCorrente conta01 = new ContaCorrente(idConta01, 200, true);
-		ContaCorrente conta02 = new ContaCorrente(idConta02, 0, true);
+		CurrentAcount conta01 = new CurrentAcount(idConta01, 200, true);
+		CurrentAcount conta02 = new CurrentAcount(idConta02, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -50,8 +50,8 @@ public class GerenciadoraContasTest_Ex11 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta02.getSaldo(), is(100.0));
-		assertThat(conta01.getSaldo(), is(100.0));
+		assertThat(conta02.getBalance(), is(100.0));
+		assertThat(conta01.getBalance(), is(100.0));
 	}
 	
 	/**
@@ -69,11 +69,11 @@ public class GerenciadoraContasTest_Ex11 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		ContaCorrente conta01 = new ContaCorrente(idConta01, 100, true);
-		ContaCorrente conta02 = new ContaCorrente(idConta02, 0, true);
+		CurrentAcount conta01 = new CurrentAcount(idConta01, 100, true);
+		CurrentAcount conta02 = new CurrentAcount(idConta02, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -84,8 +84,8 @@ public class GerenciadoraContasTest_Ex11 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta01.getSaldo(), is(-100.0));
-		assertThat(conta02.getSaldo(), is(200.0));
+		assertThat(conta01.getBalance(), is(-100.0));
+		assertThat(conta02.getBalance(), is(200.0));
 	}
 
 	/**
@@ -103,11 +103,11 @@ public class GerenciadoraContasTest_Ex11 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		ContaCorrente conta01 = new ContaCorrente(idConta01, -100, true);
-		ContaCorrente conta02 = new ContaCorrente(idConta02, 0, true);
+		CurrentAcount conta01 = new CurrentAcount(idConta01, -100, true);
+		CurrentAcount conta02 = new CurrentAcount(idConta02, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -118,8 +118,8 @@ public class GerenciadoraContasTest_Ex11 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta01.getSaldo(), is(-300.0));
-		assertThat(conta02.getSaldo(), is(200.0));
+		assertThat(conta01.getBalance(), is(-300.0));
+		assertThat(conta02.getBalance(), is(200.0));
 	}
 	
 	/**
@@ -137,11 +137,11 @@ public class GerenciadoraContasTest_Ex11 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		ContaCorrente conta01 = new ContaCorrente(idConta01, -100, true);
-		ContaCorrente conta02 = new ContaCorrente(idConta02, -100, true);
+		CurrentAcount conta01 = new CurrentAcount(idConta01, -100, true);
+		CurrentAcount conta02 = new CurrentAcount(idConta02, -100, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -152,8 +152,8 @@ public class GerenciadoraContasTest_Ex11 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta01.getSaldo(), is(-300.0));
-		assertThat(conta02.getSaldo(), is(100.0));
+		assertThat(conta01.getBalance(), is(-300.0));
+		assertThat(conta02.getBalance(), is(100.0));
 	}
 	
 	/**
@@ -170,11 +170,11 @@ public class GerenciadoraContasTest_Ex11 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		ContaCorrente conta01 = new ContaCorrente(idConta01, -100, true);
-		ContaCorrente conta02 = new ContaCorrente(idConta02, -100, true);
+		CurrentAcount conta01 = new CurrentAcount(idConta01, -100, true);
+		CurrentAcount conta02 = new CurrentAcount(idConta02, -100, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -185,8 +185,8 @@ public class GerenciadoraContasTest_Ex11 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta01.getSaldo(), is(-102.0));
-		assertThat(conta02.getSaldo(), is(-98.0));
+		assertThat(conta01.getBalance(), is(-102.0));
+		assertThat(conta02.getBalance(), is(-98.0));
 	}
 	
 }

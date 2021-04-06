@@ -41,7 +41,7 @@ public class Main {
 			case 2:
 				System.out.print("Digite o ID da conta: ");
 				int idConta = sc.nextInt();
-				ContaCorrente conta = gerContas.pesquisaConta(idConta);
+				CurrentAcount conta = gerContas.pesquisaConta(idConta);
 				
 				if(conta != null)
 					System.out.println(conta.toString());
@@ -131,12 +131,12 @@ public class Main {
 	 */
 	private static void inicializaSistemaBancario() {
 		// criando lista vazia de contas e clientes
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		List<Client> clientesDoBanco = new ArrayList<>();
 		
 		// criando e inserindo duas contas na lista de contas correntes do banco
-		ContaCorrente conta01 = new ContaCorrente(1, 0, true);
-		ContaCorrente conta02 = new ContaCorrente(2, 0, true);
+		CurrentAcount conta01 = new CurrentAcount(1, 0, true);
+		CurrentAcount conta02 = new CurrentAcount(2, 0, true);
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		

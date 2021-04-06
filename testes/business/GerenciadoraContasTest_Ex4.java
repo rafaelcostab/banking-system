@@ -33,11 +33,11 @@ public class GerenciadoraContasTest_Ex4 {
 		/* ========== Montagem do cen�rio ========== */
 		
 		// criando alguns clientes
-		ContaCorrente conta01 = new ContaCorrente(1, 200, true);
-		ContaCorrente conta02 = new ContaCorrente(2, 0, true);
+		CurrentAcount conta01 = new CurrentAcount(1, 200, true);
+		CurrentAcount conta02 = new CurrentAcount(2, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<ContaCorrente> contasDoBanco = new ArrayList<>();
+		List<CurrentAcount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -48,7 +48,7 @@ public class GerenciadoraContasTest_Ex4 {
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
-		assertThat(conta02.getSaldo(), is(100.0));
+		assertThat(conta02.getBalance(), is(100.0));
 	}
 
 }
