@@ -12,14 +12,14 @@ import org.junit.Test;
 
 /**
  * Classe de teste criada para garantir o funcionamento das principais opera��es
- * sobre clientes, realizadas pela classe {@link GerenciadoraClientes}.
+ * sobre clientes, realizadas pela classe {@link ClientManager}.
  * 
  * @author Gustavo Farias
  * @date 21/01/2035 
  */
 public class GerenciadoraClientesTest_Ex7 {
 
-	private GerenciadoraClientes gerClientes;
+	private ClientManager gerClientes;
 	private int idCLiente01 = 1;
 	private	int idCLiente02 = 2;
 	
@@ -37,14 +37,14 @@ public class GerenciadoraClientesTest_Ex7 {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		gerClientes = new ClientManager(clientesDoBanco);
 	
 //		System.out.println("Before foi executado");
 	}
 
 	@After
 	public void tearDown() {
-		gerClientes.limpa();
+		gerClientes.clear();
 		
 //		System.out.println("After foi executado");
 	}
@@ -59,7 +59,7 @@ public class GerenciadoraClientesTest_Ex7 {
 	public void testPesquisaCliente() {
 
 		/* ========== Execu��o ========== */
-		Client client = gerClientes.pesquisaCliente(idCLiente01);
+		Client client = gerClientes.findClient(idCLiente01);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(client.getId(), is(idCLiente01));
@@ -76,12 +76,12 @@ public class GerenciadoraClientesTest_Ex7 {
 	public void testRemoveCliente() {
 		
 		/* ========== Execu��o ========== */
-		boolean clienteRemovido = gerClientes.removeCliente(idCLiente02);
+		boolean clienteRemovido = gerClientes.removeClient(idCLiente02);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(clienteRemovido, is(true));
-		assertThat(gerClientes.getClientesDoBanco().size(), is(1));
-		assertNull(gerClientes.pesquisaCliente(idCLiente02));
+		assertThat(gerClientes.getBankClients().size(), is(1));
+		assertNull(gerClientes.findClient(idCLiente02));
 		
 	}
 	

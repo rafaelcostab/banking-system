@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class GerenciadoraClientesTest_Ex2 {
 
-	private GerenciadoraClientes gerClientes;
+	private ClientManager gerClientes;
 
 	@Test
 	public void testPesquisaCliente() {
@@ -24,9 +24,9 @@ public class GerenciadoraClientesTest_Ex2 {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		gerClientes = new ClientManager(clientesDoBanco);
 		
-		Client client = gerClientes.pesquisaCliente(1);
+		Client client = gerClientes.findClient(1);
 		
 		assertThat(client.getId(), is(1));
 		
@@ -44,13 +44,13 @@ public class GerenciadoraClientesTest_Ex2 {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		gerClientes = new ClientManager(clientesDoBanco);
 		
-		boolean clienteRemovido = gerClientes.removeCliente(2);
+		boolean clienteRemovido = gerClientes.removeClient(2);
 		
 		assertThat(clienteRemovido, is(true));
-		assertThat(gerClientes.getClientesDoBanco().size(), is(1));
-		assertNull(gerClientes.pesquisaCliente(2));
+		assertThat(gerClientes.getBankClients().size(), is(1));
+		assertNull(gerClientes.findClient(2));
 		
 	}
 

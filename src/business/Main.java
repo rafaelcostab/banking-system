@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	static GerenciadoraClientes gerClientes;
+	static ClientManager gerClientes;
 	static GerenciadoraContas gerContas;
 	
 	public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Main {
 			case 1:
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente = sc.nextInt();
-				Client client = gerClientes.pesquisaCliente(idCliente);
+				Client client = gerClientes.findClient(idCliente);
 				
 				if(client != null)
 					System.out.println(client.toString());
@@ -56,7 +56,7 @@ public class Main {
 				
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente2 = sc.nextInt();
-				Client client2 = gerClientes.pesquisaCliente(idCliente2);
+				Client client2 = gerClientes.findClient(idCliente2);
 				
 				if(client2 != null){
 					client2.setActive(true);
@@ -73,7 +73,7 @@ public class Main {
 				
 				System.out.print("Digite o ID do cliente: ");
 				int idCliente3 = sc.nextInt();
-				Client client3 = gerClientes.pesquisaCliente(idCliente3);
+				Client client3 = gerClientes.findClient(idCliente3);
 				
 				if(client3 != null){
 					client3.setActive(false);
@@ -147,7 +147,7 @@ public class Main {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		gerClientes = new ClientManager(clientesDoBanco);
 		gerContas = new GerenciadoraContas(contasDoBanco);
 		
 	}

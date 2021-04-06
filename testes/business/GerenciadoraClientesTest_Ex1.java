@@ -22,9 +22,9 @@ public class GerenciadoraClientesTest_Ex1 {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		GerenciadoraClientes gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		ClientManager gerClientes = new ClientManager(clientesDoBanco);
 		
-		Client client = gerClientes.pesquisaCliente(1);
+		Client client = gerClientes.findClient(1);
 		
 		assertThat(client.getId(), is(1));
 		assertThat(client.getEmail(), is("gugafarias@gmail.com"));

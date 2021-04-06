@@ -12,14 +12,14 @@ import org.junit.Test;
 
 /**
  * Classe de teste criada para garantir o funcionamento das principais opera��es
- * sobre clientes, realizadas pela classe {@link GerenciadoraClientes}.
+ * sobre clientes, realizadas pela classe {@link ClientManager}.
  * 
  * @author Rafael Costa
  * @date 27/03/2021
  */
 public class GerenciadoraClientesTest_Ex10 {
 
-	private GerenciadoraClientes gerClientes;
+	private ClientManager gerClientes;
 	private int idCLiente01 = 1;
 	private	int idCLiente02 = 2;
 	
@@ -37,12 +37,12 @@ public class GerenciadoraClientesTest_Ex10 {
 		clientesDoBanco.add(client01);
 		clientesDoBanco.add(client02);
 		
-		gerClientes = new GerenciadoraClientes(clientesDoBanco);
+		gerClientes = new ClientManager(clientesDoBanco);
 	}
 
 	@After
 	public void tearDown() {
-		gerClientes.limpa();
+		gerClientes.clear();
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testPesquisaCliente() {
 
 		/* ========== Execu��o ========== */
-		Client client = gerClientes.pesquisaCliente(idCLiente01);
+		Client client = gerClientes.findClient(idCLiente01);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(client.getId(), is(idCLiente01));
@@ -72,7 +72,7 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testPesquisaClienteInexistente() {
 
 		/* ========== Execu��o ========== */
-		Client client = gerClientes.pesquisaCliente(1001);
+		Client client = gerClientes.findClient(1001);
 		
 		/* ========== Verifica��es ========== */
 		assertNull(client);
@@ -89,12 +89,12 @@ public class GerenciadoraClientesTest_Ex10 {
 	public void testRemoveCliente() {
 		
 		/* ========== Execu��o ========== */
-		boolean clienteRemovido = gerClientes.removeCliente(idCLiente02);
+		boolean clienteRemovido = gerClientes.removeClient(idCLiente02);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(clienteRemovido, is(true));
-		assertThat(gerClientes.getClientesDoBanco().size(), is(1));
-		assertNull(gerClientes.pesquisaCliente(idCLiente02));
+		assertThat(gerClientes.getBankClients().size(), is(1));
+		assertNull(gerClientes.findClient(idCLiente02));
 		
 	}
 	
@@ -109,11 +109,11 @@ public class GerenciadoraClientesTest_Ex10 {
 
 	
 		/* ========== Execu��o ========== */
-		boolean clienteRemovido = gerClientes.removeCliente(1001);
+		boolean clienteRemovido = gerClientes.removeClient(1001);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(clienteRemovido, is(false));
-		assertThat(gerClientes.getClientesDoBanco().size(), is(2));
+		assertThat(gerClientes.getBankClients().size(), is(2));
 		
 	}
 	
@@ -121,17 +121,17 @@ public class GerenciadoraClientesTest_Ex10 {
 	 * Valida��o da idade de um cliente quando a mesma est� no intervalo permitido.
 	 * 
 	 * @author Rafael Costa
-	 * @throws IdadeNaoPermitidaException 
+	 * @throws AgeNotAllowedException
 	 * @date 27/03/2021
 	 */
 	@Test
-	public void testClienteIdadeAceitavel() throws IdadeNaoPermitidaException {
+	public void testClienteIdadeAceitavel() throws AgeNotAllowedException {
 
 		/* ========== Montagem do Cen�rio ========== */		
 		Client client = new Client(1, "Gustavo", 25, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(client.getAge());
+		boolean idadeValida = gerClientes.validateAge(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -141,17 +141,17 @@ public class GerenciadoraClientesTest_Ex10 {
 	 * Valida��o da idade de um cliente quando a mesma est� no intervalo permitido.
 	 * 
 	 * @author Rafael Costa
-	 * @throws IdadeNaoPermitidaException 
+	 * @throws AgeNotAllowedException
 	 * @date 27/03/2021
 	 */
 	@Test
-	public void testClienteIdadeAceitavel_02() throws IdadeNaoPermitidaException {
+	public void testClienteIdadeAceitavel_02() throws AgeNotAllowedException {
 
 		/* ========== Montagem do Cen�rio ========== */		
 		Client client = new Client(1, "Gustavo", 18, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(client.getAge());
+		boolean idadeValida = gerClientes.validateAge(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -161,17 +161,17 @@ public class GerenciadoraClientesTest_Ex10 {
 	 * Valida��o da idade de um cliente quando a mesma est� no intervalo permitido.
 	 * 
 	 * @author Rafael Costa
-	 * @throws IdadeNaoPermitidaException 
+	 * @throws AgeNotAllowedException
 	 * @date 27/03/2021
 	 */
 	@Test
-	public void testClienteIdadeAceitavel_03() throws IdadeNaoPermitidaException {
+	public void testClienteIdadeAceitavel_03() throws AgeNotAllowedException {
 
 		/* ========== Montagem do Cen�rio ========== */		
 		Client client = new Client(1, "Gustavo", 65, "guga@gmail.com", 1, true);
 		
 		/* ========== Execu��o ========== */
-		boolean idadeValida = gerClientes.validaIdade(client.getAge());
+		boolean idadeValida = gerClientes.validateAge(client.getAge());
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(idadeValida);	
@@ -181,22 +181,22 @@ public class GerenciadoraClientesTest_Ex10 {
 	 * Valida��o da idade de um cliente quando a mesma est� abaixo intervalo permitido.
 	 * 
 	 * @author Rafael Costa
-	 * @throws IdadeNaoPermitidaException 
+	 * @throws AgeNotAllowedException
 	 * @date 27/03/2021
 	 */
 	@Test
-	public void testClienteIdadeAceitavel_04() throws IdadeNaoPermitidaException {
+	public void testClienteIdadeAceitavel_04() throws AgeNotAllowedException {
 
 		/* ========== Montagem do Cen�rio ========== */		
 		Client client = new Client(1, "Gustavo", 17, "guga@gmail.com", 1, true);
 
 		/* ========== Execu��o ========== */
 		try {
-			gerClientes.validaIdade(client.getAge());
+			gerClientes.validateAge(client.getAge());
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
-			assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
+			assertThat(e.getMessage(), is(AgeNotAllowedException.MSG_IDADE_INVALIDA));
 		}	
 	}
 	
@@ -204,21 +204,21 @@ public class GerenciadoraClientesTest_Ex10 {
 	 * Valida��o da idade de um cliente quando a mesma est� acima intervalo permitido.
 	 * 
 	 * @author Rafael Costa
-	 * @throws IdadeNaoPermitidaException 
+	 * @throws AgeNotAllowedException
 	 * @date 27/03/2021
 	 */
 	@Test
-	public void testClienteIdadeAceitavel_05() throws IdadeNaoPermitidaException {
+	public void testClienteIdadeAceitavel_05() throws AgeNotAllowedException {
 		
 		/* ========== Montagem do Cen�rio ========== */		
 		Client client = new Client(1, "Gustavo", 66, "guga@gmail.com", 1, true);
 		/* ========== Execu��o ========== */
 		try {
-			gerClientes.validaIdade(client.getAge());
+			gerClientes.validateAge(client.getAge());
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
-			assertThat(e.getMessage(), is(IdadeNaoPermitidaException.MSG_IDADE_INVALIDA));
+			assertThat(e.getMessage(), is(AgeNotAllowedException.MSG_IDADE_INVALIDA));
 		}	
 	}
 	
