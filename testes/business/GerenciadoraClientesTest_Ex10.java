@@ -196,7 +196,7 @@ public class GerenciadoraClientesTest_Ex10 {
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
-			assertThat(e.getMessage(), is(AgeNotAllowedException.MSG_IDADE_INVALIDA));
+			assertThat(e.getMessage(), is(AgeNotAllowedException.MESSAGE_AGE_NOT_ALLOWED));
 		}	
 	}
 	
@@ -218,7 +218,7 @@ public class GerenciadoraClientesTest_Ex10 {
 			fail();
 		} catch (Exception e) {
 			/* ========== Verifica��es ========== */
-			assertThat(e.getMessage(), is(AgeNotAllowedException.MSG_IDADE_INVALIDA));
+			assertThat(e.getMessage(), is(AgeNotAllowedException.MESSAGE_AGE_NOT_ALLOWED));
 		}	
 	}
 	

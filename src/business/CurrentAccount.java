@@ -1,6 +1,6 @@
 package business;
 
-public class CurrentAcount {
+public class CurrentAccount {
 	
 	private int id;
 	
@@ -8,7 +8,7 @@ public class CurrentAcount {
 	
 	private boolean isActive;
 
-	public CurrentAcount(int id, double balance, boolean isActive) {
+	public CurrentAccount(int id, double balance, boolean isActive) {
 		this.id = id;
 		this.balance = balance;
 		this.isActive = isActive;

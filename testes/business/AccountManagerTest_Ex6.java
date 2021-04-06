@@ -10,14 +10,14 @@ import org.junit.Test;
 
 /**
  * Classe de teste criada para garantir o funcionamento das principais opera��es
- * sobre contas, realizadas pela classe {@link GerenciadoraContas}.
+ * sobre contas, realizadas pela classe {@link AccountManager}.
  * 
  * @author Gustavo Farias
  * @date 21/01/2035 
  */
-public class GerenciadoraContasTest_Ex6 {
+public class AccountManagerTest_Ex6 {
 
-	private GerenciadoraContas gerContas;
+	private AccountManager gerContas;
 	
 	/**
 	 * Teste b�sico da transfer�ncia de um valor da conta de um cliente para outro,
@@ -35,18 +35,18 @@ public class GerenciadoraContasTest_Ex6 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		CurrentAcount conta01 = new CurrentAcount(idConta01, 200, true);
-		CurrentAcount conta02 = new CurrentAcount(idConta02, 0, true);
+		CurrentAccount conta01 = new CurrentAccount(idConta01, 200, true);
+		CurrentAccount conta02 = new CurrentAccount(idConta02, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<CurrentAcount> contasDoBanco = new ArrayList<>();
+		List<CurrentAccount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
-		gerContas = new GerenciadoraContas(contasDoBanco);
+		gerContas = new AccountManager(contasDoBanco);
 
 		/* ========== Execu��o ========== */
-		boolean sucesso = gerContas.transfereValor(idConta01, 100, idConta02);
+		boolean sucesso = gerContas.transferValue(idConta01, 100, idConta02);
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);
@@ -69,18 +69,18 @@ public class GerenciadoraContasTest_Ex6 {
 		// criando alguns clientes
 		int idConta01 = 1;
 		int idConta02 = 2;
-		CurrentAcount conta01 = new CurrentAcount(idConta01, 100, true);
-		CurrentAcount conta02 = new CurrentAcount(idConta02, 0, true);
+		CurrentAccount conta01 = new CurrentAccount(idConta01, 100, true);
+		CurrentAccount conta02 = new CurrentAccount(idConta02, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<CurrentAcount> contasDoBanco = new ArrayList<>();
+		List<CurrentAccount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
-		gerContas = new GerenciadoraContas(contasDoBanco);
+		gerContas = new AccountManager(contasDoBanco);
 
 		/* ========== Execu��o ========== */
-		boolean sucesso = gerContas.transfereValor(idConta01, 200, idConta02);
+		boolean sucesso = gerContas.transferValue(idConta01, 200, idConta02);
 		
 		/* ========== Verifica��es ========== */
 		assertTrue(sucesso);

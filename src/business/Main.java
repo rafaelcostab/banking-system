@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 	static ClientManager gerClientes;
-	static GerenciadoraContas gerContas;
+	static AccountManager gerContas;
 	
 	public static void main(String[] args) {
 		
@@ -41,7 +41,7 @@ public class Main {
 			case 2:
 				System.out.print("Digite o ID da conta: ");
 				int idConta = sc.nextInt();
-				CurrentAcount conta = gerContas.pesquisaConta(idConta);
+				CurrentAccount conta = gerContas.findAccount(idConta);
 				
 				if(conta != null)
 					System.out.println(conta.toString());
@@ -131,12 +131,12 @@ public class Main {
 	 */
 	private static void inicializaSistemaBancario() {
 		// criando lista vazia de contas e clientes
-		List<CurrentAcount> contasDoBanco = new ArrayList<>();
+		List<CurrentAccount> contasDoBanco = new ArrayList<>();
 		List<Client> clientesDoBanco = new ArrayList<>();
 		
 		// criando e inserindo duas contas na lista de contas correntes do banco
-		CurrentAcount conta01 = new CurrentAcount(1, 0, true);
-		CurrentAcount conta02 = new CurrentAcount(2, 0, true);
+		CurrentAccount conta01 = new CurrentAccount(1, 0, true);
+		CurrentAccount conta02 = new CurrentAccount(2, 0, true);
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
@@ -148,7 +148,7 @@ public class Main {
 		clientesDoBanco.add(client02);
 		
 		gerClientes = new ClientManager(clientesDoBanco);
-		gerContas = new GerenciadoraContas(contasDoBanco);
+		gerContas = new AccountManager(contasDoBanco);
 		
 	}
 	

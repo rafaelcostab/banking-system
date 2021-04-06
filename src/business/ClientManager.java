@@ -23,7 +23,7 @@ public class ClientManager {
 		return null;
 	}
 
-	public void addClient(Client client) {
+	public void add(Client client) {
 		if(!bankClients.contains(client)) {
 			bankClients.add(client);
 		}
@@ -62,7 +62,7 @@ public class ClientManager {
 	
 	public boolean validateAge(int age) throws AgeNotAllowedException {
 		if(age < 18 || age > 65) {
-			throw new AgeNotAllowedException(AgeNotAllowedException.MSG_IDADE_INVALIDA);
+			throw new AgeNotAllowedException(AgeNotAllowedException.MESSAGE_AGE_NOT_ALLOWED);
 		}
 		return true;
 	}

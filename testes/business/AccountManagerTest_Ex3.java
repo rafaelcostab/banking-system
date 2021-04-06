@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class GerenciadoraContasTest_Ex3 {
+public class AccountManagerTest_Ex3 {
 
-	private GerenciadoraContas gerContas;
+	private AccountManager gerContas;
 	
 	@Test
 	public void testTransfereValor() {
@@ -18,18 +18,18 @@ public class GerenciadoraContasTest_Ex3 {
 		/* ========== Montagem do cen�rio ========== */
 		
 		// criando alguns clientes
-		CurrentAcount conta01 = new CurrentAcount(1, 200, true);
-		CurrentAcount conta02 = new CurrentAcount(2, 0, true);
+		CurrentAccount conta01 = new CurrentAccount(1, 200, true);
+		CurrentAccount conta02 = new CurrentAccount(2, 0, true);
 		
 		// inserindo os clientes criados na lista de clientes do banco
-		List<CurrentAcount> contasDoBanco = new ArrayList<>();
+		List<CurrentAccount> contasDoBanco = new ArrayList<>();
 		contasDoBanco.add(conta01);
 		contasDoBanco.add(conta02);
 		
-		gerContas = new GerenciadoraContas(contasDoBanco);
+		gerContas = new AccountManager(contasDoBanco);
 
 		/* ========== Execu��o ========== */
-		gerContas.transfereValor(1, 100, 2);
+		gerContas.transferValue(1, 100, 2);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(conta02.getBalance(), is(100.0));
