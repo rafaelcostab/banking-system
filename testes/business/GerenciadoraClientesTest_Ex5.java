@@ -44,7 +44,7 @@ public class GerenciadoraClientesTest_Ex5 {
 		gerClientes = new ClientManager(clientesDoBanco);
 
 		/* ========== Execu��o ========== */
-		Client client = gerClientes.findClient(idCLiente01);
+		Client client = gerClientes.find(idCLiente01);
 		
 		/* ========== Verifica��es ========== */
 		assertThat(client.getId(), is(idCLiente01));
@@ -81,7 +81,7 @@ public class GerenciadoraClientesTest_Ex5 {
 		/* ========== Verifica��es ========== */
 		assertThat(clienteRemovido, is(true));
 		assertThat(gerClientes.getBankClients().size(), is(1));
-		assertNull(gerClientes.findClient(idCLiente02));
+		assertNull(gerClientes.find(idCLiente02));
 		
 	}
 	

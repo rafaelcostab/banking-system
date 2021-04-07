@@ -14,7 +14,7 @@ public class ClientManager {
 		return bankClients;
 	}
 	
-	public Client findClient(int clientId) {
+	public Client find(int clientId) {
 
 		for (Client client : bankClients) {
 			if(client.getId() == clientId)

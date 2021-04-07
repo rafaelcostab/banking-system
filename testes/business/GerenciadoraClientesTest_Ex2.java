@@ -26,7 +26,7 @@ public class GerenciadoraClientesTest_Ex2 {
 		
 		gerClientes = new ClientManager(clientesDoBanco);
 		
-		Client client = gerClientes.findClient(1);
+		Client client = gerClientes.find(1);
 		
 		assertThat(client.getId(), is(1));
 		
@@ -50,7 +50,7 @@ public class GerenciadoraClientesTest_Ex2 {
 		
 		assertThat(clienteRemovido, is(true));
 		assertThat(gerClientes.getBankClients().size(), is(1));
-		assertNull(gerClientes.findClient(2));
+		assertNull(gerClientes.find(2));
 		
 	}
 

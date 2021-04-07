@@ -75,14 +75,12 @@ public class Client {
 	public String toString() {
 		
 		String str ="=========================" 
-					+"Id: " + this.id + "\n"
-					+ "Nome: " + this.name + "\n"
-					+ "Email: " + this.email + "\n"
-					+ "Idade: " + this.age + "\n"
-					+ "Status: " + (isActive ?"Ativo":"Inativo") + "\n"
-					+ "=========================";
+					+"\nId:\t\t" + this.id
+					+ "\nNome:\t" + this.name
+					+ "\nEmail:\t" + this.email
+					+ "\nIdade:\t" + this.age
+					+ "\nStatus:\t" + (isActive ?"Ativo":"Inativo")
+					+ "\n=========================";
 		return str;
 	}
-
-
 }

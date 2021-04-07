@@ -42,10 +42,10 @@ public class CurrentAccount {
 	public String toString() {
 		
 		String str = "========================="
-					+ "Id: " + this.id + "\n"
-					+ "Saldo: " + this.balance + "\n"
-					+ "Status: " + (isActive ?"Ativa":"Inativa") + "\n"
-					+ "=========================";
+					+ "\nId:\t\t" + this.id
+					+ "\nSaldo:\t" + this.balance
+					+ "\nStatus:\t" + (isActive ? "Ativa" : "Inativa")
+					+ "\n=========================";
 		return str;
 	}
 	

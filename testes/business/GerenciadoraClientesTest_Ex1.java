@@ -24,7 +24,7 @@ public class GerenciadoraClientesTest_Ex1 {
 		
 		ClientManager gerClientes = new ClientManager(clientesDoBanco);
 		
-		Client client = gerClientes.findClient(1);
+		Client client = gerClientes.find(1);
 		
 		assertThat(client.getId(), is(1));
 		assertThat(client.getEmail(), is("gugafarias@gmail.com"));
